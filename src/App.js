@@ -1,24 +1,29 @@
 import logo from './logo.svg';
 import './App.css';
+import ListProductComponent from './components/ListProductComponent';
+import HeaderComponent from './components/HeaderComponent';
+import FooterComponent from './components/FooterComponent';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import ProductComponent from './components/ProductComponent';
+import Dashboard from './Dashboard';
+import ListPendingProductComponent from './components/ListPendingProductComponent';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <BrowserRouter>
+        {/* <HeaderComponent /> */}
+        <Routes>
+          <Route path='/' element={<Dashboard />}></Route>
+          <Route path='/products' element={<ListProductComponent />}></Route>
+          <Route path='/add-product' element={<ProductComponent />}></Route>
+          <Route path='/update-product/:id' element={<ProductComponent />}></Route>
+          <Route path='/pending-products' element={<ListPendingProductComponent />}></Route>
+        </Routes>
+        {/* <FooterComponent /> */}
+      </BrowserRouter>
+    </>
+    
   );
 }
 
