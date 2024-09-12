@@ -1,7 +1,9 @@
 import React, {useEffect, useState} from 'react'
 import { listPendingProduct, updateStatusApproved, updateStatusRejected } from '../services/ProductService';
+import { useNavigate } from 'react-router-dom'
 
 function ListPendingProductComponent() {
+    const navigator = useNavigate();
     const [products, setProducts] = useState([])
 
     useEffect(() => {
@@ -36,9 +38,14 @@ function ListPendingProductComponent() {
         })
     }
 
+    function goToDashboard() {
+        navigator('/')
+    }
+
     return (
         <div className='container'>
             <br /> <br />
+            <button className='btn btn-warning' onClick={() => goToDashboard()}>Dashboard</button>
             <h2 className='text-center'>List Pending Product</h2>
             <br /> <br />
             <table className='table table-striped table-bordere'>

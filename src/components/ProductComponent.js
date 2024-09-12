@@ -99,9 +99,14 @@ const ProductComponent = () => {
         }
     }
 
+    function backHome() {
+        navigator('/products')
+    }
+
   return (
     <div className='container'>
         <br /> <br />
+        <button className='btn btn-warning' onClick={() => backHome()}>Home</button>
         <div className='row'>
             <div className='card col-md-6 offset-md-3 offset-md-3'>
                 { pageTitle() }

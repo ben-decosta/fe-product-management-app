@@ -37,11 +37,19 @@ const ListProductComponent = () => {
         })
     }
 
+    function goToDashboard() {
+        navigator('/')
+    }
+
   return (
     <div className='container'>
         <br /> <br />
+        <button className='btn btn-warning' onClick={() => goToDashboard()}>Dashboard</button>
         <h2 className='text-center'>List Product</h2>
-        <button className='btn btn-primary mb-2' onClick={addNewProduct}>Add Product</button>
+        <div className="d-grid gap-2 d-md-flex justify-content-md-end">
+            <button className="btn btn-primary me-md-2" onClick={addNewProduct}>Add Product</button>
+        </div>
+        {/* <button className='btn btn-primary mb-2' onClick={addNewProduct}>Add Product</button> */}
         <table className='table table-striped table-bordere'>
             <thead>
                 <tr>
